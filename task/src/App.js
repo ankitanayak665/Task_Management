@@ -1,10 +1,9 @@
 import HeaderSection from "../src/components/HeaderPage";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from '../src/components/LoginPage';
-import Tasks from '../src/components/Task';
+import Tasks from './components/Tasks';
 import SignUp from '../src/components/SignUp';
-
-// import MenuIcon from '@mui/icons-material/Menu';
+import FrontPage from "./components/FrontPage";
 
 function App() {
 
@@ -12,6 +11,7 @@ function App() {
     <Router>
       <HeaderSection />
       <Routes>
+        <Route path="/" element={<FrontPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/tasks" element={<Tasks />} /> 
         <Route path="/signUp" element={<SignUp />} />

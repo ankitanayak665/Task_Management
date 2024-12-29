@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, TextField, Typography } from '@mui/material'
+import { Box, Button, IconButton, Paper, TextField, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Snackbar from '@mui/material/Snackbar';
@@ -86,43 +86,43 @@ function SignUp() {
   return (
     <Box sx={{ flexGrow: 1 }}>
          
-          <Box sx={{display:"flex",justifyContent:"center",flexDirection:"column" ,alignItems: "center",}}>
-          <Typography sx={{ display:"flex",justifyContent:"center",mt:"5vh", fontWeight:"bold"}}>Signup</Typography>
-          <Box sx={{p:"10px",display:"flex",justifyContent:"center",flexDirection:"column" ,border: "1px solid",borderColor:"blue", width:"40%",alignItems: "center"}}>
+          <Box sx={{display:"flex",justifyContent:"center",flexDirection:"column" ,alignItems: "center",marginTop:"50px"}}>
+          <Typography sx={{ display:"flex",justifyContent:"center",mt:"5vh", fontWeight:"bold",fontSize:"20px"}}>Signup</Typography>
+          <Paper elevation={5} sx={{p:"10px",display:"flex",justifyContent:"center",flexDirection:"column" , width:"40%",alignItems: "center",marginTop:"10px"}}>
           <TextField
            sx={{
         mt: "10px",
         width: "100%",
         "& .MuiOutlinedInput-root": {
-          height: "40px", // Set the same height for consistency
+          height: "40px",
         }
       }} id="outlined-basic" name="firstName" label="First Name" variant="outlined" onChange={(e)=>{handleInput(e)}} />
           <TextField sx={{
         mt: "10px",
         width: "100%",
         "& .MuiOutlinedInput-root": {
-          height: "40px", // Set the same height for consistency
+          height: "40px", 
         },
       }} id="outlined-basic" name="lastName" label="Last Name" variant="outlined" onChange={(e)=>{handleInput(e)}}/>
       <TextField sx={{
         mt: "10px",
         width: "100%",
         "& .MuiOutlinedInput-root": {
-          height: "40px", // Set the same height for consistency
+          height: "40px", 
         },
       }} id="outlined-basic" name="email" label="Email" variant="outlined" onChange={(e)=>{handleInput(e)}}/>
       <TextField sx={{
         mt: "10px",
         width: "100%",
         "& .MuiOutlinedInput-root": {
-          height: "40px", // Set the same height for consistency
+          height: "40px", 
         },
       }} id="outlined-basic" name="password" label="Password" variant="outlined" onChange={(e)=>{handleInput(e)}}/>
       <TextField sx={{
         mt: "10px",
         width: "100%",
         "& .MuiOutlinedInput-root": {
-          height: "40px", // Set the same height for consistency
+          height: "40px", 
         },
       }} id="outlined-basic" name="confirmPassword" label="Confirm Password" variant="outlined" onChange={(e)=>{handleInput(e)}}/>
           <Button onClick={handleSignUp} variant="contained" sx={{mt:"10px",width:"100%"}}>Signup</Button>
@@ -130,8 +130,7 @@ function SignUp() {
           <Typography>Already have an account?</Typography>
           <Button sx={{textTransform: "none"}} onClick={handleLogin}>Login</Button>
         </Box>
-          {/* <Button variant="contained" sx={{textTransform: "none"}}>Signup with Google</Button> */}
-          </Box>
+          </Paper>
           </Box>
           <Snackbar
         open={open}

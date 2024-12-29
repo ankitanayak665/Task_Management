@@ -28,14 +28,15 @@ function HeaderSection() {
         navigate('/signUp');
     }
     const handleLogout =()=>{
-      dispatch(logOutUser({userData}))
+      // dispatch(logOutUser({userData}))
       navigate('/login');
   }
     const location = useLocation();
   return (
-    // <>Hello</>
-    <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static">
+    <Box sx={{
+      flexGrow: 1,
+    }}>
+          <AppBar position="fixed">
             <Toolbar sx={{ justifyContent: "space-between" }}>
               <IconButton ><EventNoteIcon /></IconButton>
               <div>
@@ -50,6 +51,7 @@ function HeaderSection() {
         <Box sx={{ width: '100%' }}>
           <LinearProgress />
         </Box>
+        
       )}
     </Box>
         </Box>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { IconButton, Snackbar, TextField } from '@mui/material';
+import { IconButton, Paper, Snackbar, TextField } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import CircularProgress from '@mui/material/CircularProgress';
 import LinearProgress from '@mui/material/LinearProgress';
@@ -86,10 +86,10 @@ function LoginPage() {
 
       
     return (
-        <Box sx={{ flexGrow: 1 }}>
-          <Box sx={{display:"flex",justifyContent:"center",flexDirection:"column" ,alignItems: "center",}}>
-          <Typography sx={{ display:"flex",justifyContent:"center",mt:"5vh", fontWeight:"bold"}}>Login</Typography>
-          <Box sx={{p:"10px",display:"flex",justifyContent:"center",flexDirection:"column" ,border: "1px solid",borderColor:"blue", width:"40%",alignItems: "center"}}>
+        <Box sx={{ flexGrow: 1 }} >
+          <Box sx={{display:"flex",justifyContent:"center",flexDirection:"column" ,alignItems: "center",marginTop:"50px"}}>
+          <Typography sx={{ display:"flex",justifyContent:"center",mt:"5vh", fontWeight:"bold",fontSize:"20px"}}>Login</Typography>
+          <Paper elevation={5} sx={{p:"10px",display:"flex",justifyContent:"center",flexDirection:"column" , width:"40%",alignItems: "center",marginTop:"10px"}}>
           <TextField sx={{
         mt: "10px",
         width: "100%",
@@ -109,7 +109,7 @@ function LoginPage() {
           <Typography>Don't have an account?</Typography>
           <Button onClick={handleSignUp} sx={{textTransform: "none"}}>Signup</Button>
         </Box>
-          </Box>
+          </Paper>
           </Box>
           
           <Snackbar

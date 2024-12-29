@@ -37,7 +37,13 @@ const getAllTodotasks = createSlice({
             }
           },
           loggedInUser: (state, { payload }) => {
-            state.loggedInUser = payload
+            localStorage.setItem("loggedInUser", JSON.stringify(payload));
+          },
+          getLoggedInUser: (state, { payload }) => {
+            const userId = localStorage.getItem("loggedInUser");
+            let user = JSON.parse(userId)
+            state.loggedInUser = user
+
           },
           logOutUser: (state, { payload }) => {
             localStorage.removeItem(`tasks_${payload.userData.email}`);
@@ -47,5 +53,5 @@ const getAllTodotasks = createSlice({
     }, 
 });
 
-export const { updateList ,addItems,isSignUp,isLogin,loggedInUser,logOutUser} = getAllTodotasks.actions;
+export const { updateList ,addItems,isSignUp,isLogin,loggedInUser,getLoggedInUser,logOutUser} = getAllTodotasks.actions;
 export default getAllTodotasks.reducer;
