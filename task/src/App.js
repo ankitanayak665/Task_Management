@@ -12,9 +12,9 @@ function App() {
     <Router>
       <HeaderSection />
       <Routes>
-        <Route path="/login" element={<LoginPage />} /> {/* Main/Home route */}
-        <Route path="/tasks" element={<Tasks />} /> {/* Tasks route */}
-        <Route path="/signUp" element={<SignUp />} /> {/* Tasks route */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/tasks" element={<Tasks />} /> 
+        <Route path="/signUp" element={<SignUp />} />
 
       </Routes>
     </Router>
