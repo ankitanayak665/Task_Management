@@ -10,6 +10,7 @@ function SignUp() {
   const [open, setOpen] = useState(false);
   const [validation,setValidation] = useState("")
   const [credentialsList,setCredentialsList]= useState([])
+  const [errorNumber,setErrorNumber]= useState("")
   const [credentials,setCredentials]= useState({
     firstName:"",
     lastName:"",
@@ -27,6 +28,11 @@ function SignUp() {
       setCredentialsList(totalUserList)
     },totalUserList)
 
+    function isValidEmail(email) {
+        const regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        return regex.test(email);
+    }
+
    const handleSignUp =async()=>{
     const value =[...credentialsList,credentials]
     setCredentialsList(value)
@@ -34,15 +40,28 @@ function SignUp() {
     const isAnyFieldEmpty = Object.values(credentials).some(value => value === "");
     
     if(!isAnyFieldEmpty){
-    try {
-      dispatch(isSignUp(value))
-        navigate('/login');
-        
-    } catch (error) {
-      setValidation(error?.response?.data?.error?.details[0]?.message)
-      setOpen(true);
-    }
+        if(isValidEmail(credentials.email)){
+            if(credentials.password === credentials.confirmPassword){
+                try {
+                    dispatch(isSignUp(value))
+                      navigate('/login');
+                      
+                  } catch (error) {
+                    setValidation(error?.response?.data?.error?.details[0]?.message)
+                    setOpen(true);
+                  }
+            }else{
+                setErrorNumber("Please fill valid emailId or password")
+                setOpen(true);
+            }
+            
+        }else{
+        setErrorNumber("Please fill valid emailId or password")
+        setOpen(true);
+        }
+    
   }else{
+    setErrorNumber("Please fill the fields")
     setOpen(true);
   }
    }
@@ -136,7 +155,7 @@ function SignUp() {
         open={open}
         autoHideDuration={6000}
         onClose={handleClose}
-        message={validation ? validation : "No datas found"}
+        message={errorNumber ? errorNumber : "No datas found"}
         action={action}
       />
         </Box>

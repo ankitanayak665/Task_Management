@@ -41,12 +41,12 @@ function LoginPage() {
           dispatch(loggedInUser(login))
           navigate('/tasks');
         }else{
-          setValidation("Please enter valid Credential")
+          setValidation("Please enter valid credential")
           setOpen(true);
         }
 
       } catch (error) {
-        setValidation("Please enter valid Credential")
+        setValidation("Please enter valid credential")
       setOpen(true);
 
       }
